@@ -51,7 +51,8 @@
     $(document).ready(function() {
 
       // Array for word colors
-      var colorsOfText = ["brown", "blue", "coral", "black", "magenta", "teal"];
+      var colorsOfText1 = ["brown", "blue", "coral", "black", "magenta", "teal"];
+      var colorsOfText2 = ["brown", "blue", "coral", "black", "magenta", "teal"];
 
       // Target word
       var targetColor;
@@ -63,22 +64,16 @@
       var userAnswer;
 
       // Array for words
-      var colors = [
-        "brown",
-        "blue",
-        "magenta",
-        "teal",
-        "coral",
-        "black"
-      ];
+      var colors1 = [ "brown","blue","magenta","teal","coral","black"];
+      var colors2 = [ "brown","blue","magenta","teal","coral","black"];
 
       // This function sets a random color "word" and a random set of colors "visuals"
       function randColor() {
         // Set random word
-        var word=colors[Math.floor(Math.random() * 6)]; // returns a random integer from 0 to 5
+        var word=colors1[Math.floor(Math.random() * 6)]; // returns a random integer from 0 to 5
 
         // Set random word color
-        var wordcol=colorsOfText[Math.floor(Math.random() * 6)]; // returns a random integer from 0 to 5
+        var wordcol=colorsOfText1[Math.floor(Math.random() * 6)]; // returns a random integer from 0 to 5
       }
       // Shuffle array copied from stack overflow
       function shuffleArray(array) {
@@ -94,25 +89,25 @@
       function createColorPicker() {
 
         // Shuffle color array 
-        shuffleArray(colors);
+        shuffleArray(colors1);shuffleArray(colors2);
         // Shuffle text color array
-        shuffleArray(colorsOfText);
+        shuffleArray(colorsOfText1);shuffleArray(colorsOfText2);
         
         // Loop through all colors in the array
         // Create element to hold word
         // Output a word
         // Make word a random color
-        for (var i=0; i<colors.length; i++){
+        for (var i=0; i<colors1.length; i++){
           
-          $("#rand-target-color").text(colorsOfText[i]);
-          $("#rand-target-color").css( "color", colors[i]);
+          $("#rand-target-color").text(colorsOfText1[i]);
+          $("#rand-target-color").css( "color", colorsOfText2[i]);
           
           var colpick = $("<li>");
           $.each(colpick, function(){
-            colpick.text(colors[i]);
+            colpick.text(colors1[i]);
             $("#color-picker").append(colpick);
-            colpick.addClass(colorsOfText[i]);
-            colpick.data("color", colorsOfText[i]);
+            colpick.addClass(colors2[i]);
+            colpick.data("color", colors2[i]);
             var element = $( this );
             element.css( "color", element.data( "color" ) );
 
